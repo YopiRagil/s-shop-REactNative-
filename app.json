@@ -1,0 +1,12 @@
+{
+  "name": "s-shop",
+  "displayName": "s-shop",
+  "expo": {
+    "name": "s-shop",
+    "slug": "s-shop",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
