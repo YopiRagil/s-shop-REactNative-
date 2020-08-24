@@ -5,7 +5,6 @@ import { Actions } from "react-native-router-flux";
 
 const ProdukHome = (props) => {
   const handleDetailofProduk = async (id) => {
-    await Actions.detail();
     props.doProdukDetail(id);
   };
   return (

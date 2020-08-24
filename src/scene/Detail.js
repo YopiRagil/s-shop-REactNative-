@@ -5,15 +5,18 @@ import Navbar from "../components/Navbar";
 import DetailProduk from "../components/detail/DetailProduk";
 import { connect } from "react-redux";
 import { getProduk, getProdukDetail } from "../store/action/produkAction";
+import { addToCart } from "../store/action/cartAction";
 
 class Detail extends Component {
   componentDidMount = async () => {
     this.props.getProduk();
   };
-
   handleProdukDetail = async (id, namaProduk) => {
     await this.props.history.push("/produk/" + namaProduk + "/" + id);
     this.props.getProdukDetail(id);
+  };
+  handleAddToCart = async (produk) => {
+    this.props.addToCart(produk);
   };
 
   render() {
@@ -24,7 +27,7 @@ class Detail extends Component {
           <View>
             {this.props.isLoading ? null : (
               <View>
-                <DetailProduk />
+                <DetailProduk {...this.props} />
               </View>
             )}
           </View>
@@ -34,7 +37,7 @@ class Detail extends Component {
             icon="cart"
             mode="contained"
             style={{ height: 40, width: 200, margin: 10 }}
-            onPress={() => console.log("Pressed")}
+            onPress={() => this.handleAddToCart(this.props.produkDetail[0])}
           >
             <Text style={{ height: 20, fontSize: 15 }}>Add to cart</Text>
           </Button>
@@ -46,6 +49,7 @@ class Detail extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    produkDetail: state.produk.produkDetail,
     produkData: state.produk.produkData,
     isLoading: state.produk.isLoading,
   };
@@ -53,5 +57,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getProduk,
   getProdukDetail,
+  addToCart,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

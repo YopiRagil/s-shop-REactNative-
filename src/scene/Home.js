@@ -12,8 +12,8 @@ class Home extends Component {
   };
 
   handleProdukDetail = async (id) => {
-    await Actions.detail();
-    this.props.getProdukDetail(id);
+    await this.props.getProdukDetail(id);
+    Actions.detail();
   };
 
   render() {
@@ -61,4 +61,3 @@ const mapDispatchToProps = {
   getProdukDetail,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
-// export default Home

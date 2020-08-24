@@ -18,7 +18,9 @@ export const inputQty = () => {
 };
 
 export const addToCart = (produk) => {
+  produk["qty"] = 1;
   return async (dispatch) => {
+    console.log(produk);
     dispatch({
       type: "PRODUK_INCART",
       payload: produk,

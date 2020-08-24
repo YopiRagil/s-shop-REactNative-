@@ -29,7 +29,7 @@ const DetailProduk = (props) => {
           color: "blueviolet",
         }}
       >
-        NAma Produk Disini
+        {props.produkDetail[0].product_name}
       </Text>
       <View style={{ flexDirection: "row-reverse" }}>
         <Divider
@@ -51,8 +51,7 @@ const DetailProduk = (props) => {
           marginRight: "auto",
         }}
         source={{
-          uri:
-            "https://mobilemoj.com/wp-content/uploads/2020/03/Samsung-Galaxy-S11-Plus.jpg",
+          uri: props.produkDetail[0].picture,
         }}
       />
       <Divider
@@ -68,10 +67,10 @@ const DetailProduk = (props) => {
           textAlign: "center",
           fontSize: 25,
           fontWeight: "bold",
-          color: "gray",
+          color: "blueviolet",
         }}
       >
-        IDR 4000000
+        IDR {props.produkDetail[0].price}
       </Text>
       <View style={{ flexDirection: "row-reverse" }}>
         <Divider
@@ -110,11 +109,7 @@ const DetailProduk = (props) => {
             textAlign: "justify",
           }}
         >
-          List.Accordion can be wrapped because impleme ntation uses
-          React.Context. List.Accordion can be wrapped because impleme ntation
-          uses React.Context. List.Accordion can be wrapped because implem
-          entation uses React.Context. List.Accordion can be wrapped because
-          impleme ntation uses React.Context.1
+          {props.produkDetail[0].description}
         </Text>
       </Card>
     </Card>
