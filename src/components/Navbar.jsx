@@ -1,13 +1,22 @@
 import * as React from "react";
 import { Appbar } from "react-native-paper";
 import { Platform } from "react-native";
+import { Actions } from "react-native-router-flux";
 
 const MORE_ICON = Platform.OS === "ios" ? "dots-horizontal" : "dots-vertical";
 
-const Navbar = () => (
+const Navbar = (props) => (
   <Appbar.Header>
-    <Appbar.Content title="S-Shop" subtitle={"smart-s"} />
-    <Appbar.Action icon="magnify" onPress={() => {}} />
+    <Appbar.Content
+      onPress={Actions.home()}
+      title="S-Shop"
+      subtitle={"smart-s"}
+    />
+    <Appbar.Action
+      onPress={Actions.detail()}
+      icon="magnify"
+      onPress={() => {}}
+    />
     <Appbar.Action icon={MORE_ICON} onPress={() => {}} />
   </Appbar.Header>
 );

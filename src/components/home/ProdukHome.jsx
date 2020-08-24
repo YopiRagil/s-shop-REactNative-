@@ -1,8 +1,13 @@
 import * as React from "react";
 import { Button, Card } from "react-native-paper";
 import { Text, View } from "react-native";
+import { Actions } from "react-native-router-flux";
 
 const ProdukHome = (props) => {
+  const handleDetailofProduk = async (id) => {
+    await Actions.detail();
+    props.doProdukDetail(id);
+  };
   return (
     <Card style={{ width: 160, height: 260, marginBottom: 10 }}>
       <Card.Cover
@@ -44,7 +49,7 @@ const ProdukHome = (props) => {
           <Button
             icon="more"
             mode="contained"
-            onPress={() => console.log("Pressed")}
+            onPress={() => handleDetailofProduk(props.idProduk)}
           >
             <Text style={{ height: 20, fontSize: 10 }}>detail</Text>
           </Button>

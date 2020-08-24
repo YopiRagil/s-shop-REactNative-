@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import Navbar from "../components/Navbar";
-import ProdukHome from "../components/home/ProdukHomekHome";
-
+import ProdukHome from "../components/home/ProdukHome";
+import { Actions } from "react-native-router-flux";
 import { connect } from "react-redux";
 import { getProduk, getProdukDetail } from "../store/action/produkAction";
 
@@ -11,8 +11,8 @@ class Home extends Component {
     this.props.getProduk();
   };
 
-  handleProdukDetail = async (id, namaProduk) => {
-    await this.props.history.push("/produk/" + namaProduk + "/" + id);
+  handleProdukDetail = async (id) => {
+    await Actions.detail();
     this.props.getProdukDetail(id);
   };
 
@@ -29,7 +29,7 @@ class Home extends Component {
               padding: 10,
             }}
           >
-            {/* {this.props.isLoading
+            {this.props.isLoading
               ? null
               : this.props.produkData.map((item, index) => (
                   <View key={index}>
@@ -39,10 +39,10 @@ class Home extends Component {
                       deskripsi={item.description}
                       gambar={item.picture}
                       harga={item.price}
-                      doProdukDetail={(id, nama) => props.doDetail(id, nama)}
+                      doProdukDetail={(id) => this.handleProdukDetail(id)}
                     />
                   </View>
-                ))} */}
+                ))}
           </View>
         </ScrollView>
       </View>
