@@ -20,12 +20,22 @@ export const changeQty = (qty, id) => {
   };
 };
 
-export const inputQty = () => {
+export const deleteFromCart = (id) => {
   return async (dispatch, getState) => {
-    const qty = getState().cart.name;
+    const newInput = getState().cart.produkInCart.filter(
+      (item) => item.id !== id
+    );
     dispatch({
-      type: "QTY_PRODUK",
-      payload: qty,
+      type: "DELETE_FROM_CART",
+      payload: newInput,
+    });
+  };
+};
+
+export const clearCart = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: "CLEAR_CART",
     });
   };
 };

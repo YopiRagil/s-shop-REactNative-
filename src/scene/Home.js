@@ -19,7 +19,7 @@ class Home extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "lavender" }}>
-        <Navbar />
+        <Navbar {...this.props} />
         <ScrollView>
           <View
             style={{
@@ -38,6 +38,7 @@ class Home extends Component {
                       produk={item.product_name}
                       deskripsi={item.description}
                       gambar={item.picture}
+                      rate={item.rate}
                       harga={item.price}
                       doProdukDetail={(id) => this.handleProdukDetail(id)}
                     />

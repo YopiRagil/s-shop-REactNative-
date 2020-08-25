@@ -1,20 +1,28 @@
 import * as React from "react";
-import { Appbar } from "react-native-paper";
+import { Appbar, Avatar } from "react-native-paper";
 import { Platform } from "react-native";
 import { Actions } from "react-native-router-flux";
 
-const MORE_ICON = Platform.OS === "ios" ? "dots-horizontal" : "dots-vertical";
-
-export default function Navbar() {
+export default function Navbar(props) {
   return (
-    <Appbar.Header>
+    <Appbar.Header style={{ backgroundColor: "darkblue" }}>
+      {props.title === "Home" ? null : (
+        <Appbar.Action icon="arrow-left" onPress={() => Actions.pop()} />
+      )}
+      <Avatar.Icon
+        size={50}
+        icon="cellphone"
+        style={{ backgroundColor: "darkblue" }}
+        onPress={() => Actions.home()}
+      />
       <Appbar.Content
         onPress={() => Actions.home()}
         title="S-Shop"
-        subtitle={"smart-s"}
+        style={{ marginLeft: -20 }}
       />
-      <Appbar.Action icon="cart" onPress={() => Actions.cart()} />
-      <Appbar.Action icon={MORE_ICON} onPress={() => Actions.detail()} />
+      {props.title === "cart" ? null : (
+        <Appbar.Action icon="cart" onPress={() => Actions.cart()} />
+      )}
     </Appbar.Header>
   );
 }

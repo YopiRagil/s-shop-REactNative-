@@ -1,6 +1,5 @@
 const initialState = {
   isLoading: true,
-  qtyOrder: "",
   produkInCart: [],
 };
 
@@ -11,16 +10,6 @@ export default function cartReducer(state = initialState, action) {
         ...state,
         isLoading: true,
       };
-    case "CHANGE_INPUT_REGISTER":
-      return {
-        ...state,
-        [action.payload.target.name]: action.payload.target.value,
-      };
-    case "QTY_PRODUK":
-      return {
-        ...state,
-        qtyOrder: action.payload,
-      };
     case "PRODUK_INCART":
       return {
         ...state,
@@ -30,6 +19,16 @@ export default function cartReducer(state = initialState, action) {
       return {
         ...state,
         produkInCart: [...state.produkInCart],
+      };
+    case "DELETE_FROM_CART":
+      return {
+        ...state,
+        produkInCart: action.payload,
+      };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        produkInCart: [],
       };
     default:
       return state;

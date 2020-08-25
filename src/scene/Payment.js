@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
 import { Button, Divider, Avatar } from "react-native-paper";
 import Navbar from "../components/Navbar";
-import ProdukCart from "../components/cart/ProdukInCart";
+import PaymentForProduk from "../components/payment/PaymentProduk";
 import { connect } from "react-redux";
 import { getProduk, getProdukDetail } from "../store/action/produkAction";
-import { inputQty, addToCart, changeQty } from "../store/action/cartAction";
+import { addToCart, changeQty, clearCart } from "../store/action/cartAction";
+import { Actions } from "react-native-router-flux";
+import DialogPay from "../components/payment/DialogPay";
 
 class Cart extends Component {
   componentDidMount = async () => {
@@ -15,7 +17,7 @@ class Cart extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "lavender" }}>
-        <Navbar />
+        <Navbar {...this.props} />
         <ScrollView>
           <View
             style={{
@@ -25,45 +27,43 @@ class Cart extends Component {
               marginTop: 20,
             }}
           >
-            <Avatar.Icon size={40} icon="cart" />
+            <Avatar.Icon
+              size={40}
+              icon="paypal"
+              style={{ backgroundColor: "darkblue" }}
+            />
             <Text
               style={{
                 fontSize: 25,
                 marginLeft: 10,
                 textAlign: "center",
                 paddingBottom: 1,
-                color: "blue",
+                color: "darkblue",
               }}
             >
-              My Cart
+              Payment
             </Text>
           </View>
-          {this.props.produkInCart
-            .slice()
-            .reverse()
-            .map((item, key) => (
-              <ProdukCart
-                key={key}
-                id={item.id}
-                produk={item.product_name}
-                deskripsi={item.description}
-                gambar={item.picture}
-                harga={item.price}
-                qty={item.qty}
-                chnageQtyProduk={(qty, id) => this.props.changeQty(qty, id)}
-              />
-            ))}
+
+          <PaymentForProduk {...this.props} />
+          <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
+            <Button
+              icon=""
+              mode="contained"
+              onPress={() => Actions.pop()}
+              style={{
+                height: 37,
+                width: 110,
+                marginRight: 10,
+                borderRadius: 20,
+                backgroundColor: "darkred",
+              }}
+            >
+              <Text style={{ height: 20, fontSize: 12 }}>Cancel</Text>
+            </Button>
+            <DialogPay clearMyCart={() => this.props.clearCart()} />
+          </View>
         </ScrollView>
-        <View style={{ justifyContent: "center", flexDirection: "row" }}>
-          <Button
-            icon="paypal"
-            mode="contained"
-            style={{ height: 40, width: 200, margin: 10 }}
-            // onPress={() => this.handleAddToCart(this.props.produkDetail[0])}
-          >
-            <Text style={{ height: 20, fontSize: 15 }}>Go to payment</Text>
-          </Button>
-        </View>
       </View>
     );
   }
@@ -80,8 +80,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   getProduk,
   getProdukDetail,
-  inputQty,
   addToCart,
   changeQty,
+  clearCart,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

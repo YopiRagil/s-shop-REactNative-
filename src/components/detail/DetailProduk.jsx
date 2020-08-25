@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Button, Card, Divider } from "react-native-paper";
 import { Text, View } from "react-native";
+import CreateStar from "../Stars";
 
 const DetailProduk = (props) => {
   return (
@@ -26,7 +27,7 @@ const DetailProduk = (props) => {
           fontWeight: "bold",
           textAlign: "center",
           paddingBottom: 1,
-          color: "blueviolet",
+          color: "darkblue",
         }}
       >
         {props.produkDetail[0].product_name}
@@ -54,6 +55,15 @@ const DetailProduk = (props) => {
           uri: props.produkDetail[0].picture,
         }}
       />
+      <View
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        <CreateStar star={props.produkDetail[0].rate} />
+      </View>
       <Divider
         style={{
           height: 3,
@@ -67,7 +77,7 @@ const DetailProduk = (props) => {
           textAlign: "center",
           fontSize: 25,
           fontWeight: "bold",
-          color: "blueviolet",
+          color: "darkblue",
         }}
       >
         IDR {props.produkDetail[0].price}
@@ -96,7 +106,7 @@ const DetailProduk = (props) => {
             color: "black",
             fontSize: 16,
             fontWeight: "bold",
-            color: "darkorchid",
+            color: "darkblue",
           }}
         >
           Detail Produk

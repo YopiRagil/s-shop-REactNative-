@@ -6,6 +6,7 @@ import { Provider as PaperProvider } from "react-native-paper";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "../store";
 import Cart from "../scene/Cart";
+import Payment from "../scene/Payment";
 
 class Route extends Component {
   render() {
@@ -34,6 +35,13 @@ class Route extends Component {
                 path={"cart"}
                 hideNavBar={true}
                 title="cart"
+              />
+              <Scene
+                key="payment"
+                component={Payment}
+                path={"payment"}
+                hideNavBar={true}
+                title="payment"
               />
             </Scene>
           </Router>

@@ -1,11 +1,9 @@
 import * as React from "react";
 import { Button, Card, TextInput, IconButton } from "react-native-paper";
 import { Text, View } from "react-native";
+import CreateStar from "../Stars";
 
 const ProdukCart = (props) => {
-  //   const handleDetailofProduk = async (id) => {
-  //     props.doProdukDetail(id);
-  //   };
   const [text, setText] = React.useState("");
   const handleChangeQty = async (num, id) => {
     if (num % 1 !== 0) {
@@ -18,26 +16,37 @@ const ProdukCart = (props) => {
     setText("");
   };
   return (
-    <Card style={{ width: "100%", height: 200, marginBottom: 10 }}>
+    <Card style={{ width: "100%", height: 210, marginBottom: 10 }}>
       <View
         style={{
           flexDirection: "row",
           padding: 10,
         }}
       >
-        <Card.Cover
-          style={{ width: 150, height: 170 }}
-          source={{
-            uri: props.gambar,
-          }}
-        />
+        <View>
+          <Card.Cover
+            style={{ width: 150, height: 170 }}
+            source={{
+              uri: props.gambar,
+            }}
+          />
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <CreateStar star={props.rate} />
+          </View>
+        </View>
         <Card.Content>
           <Text
             style={{
               fontSize: 18,
               fontWeight: "bold",
               paddingBottom: 1,
-              color: "blue",
+              color: "darkblue",
             }}
           >
             {props.produk}
@@ -45,7 +54,7 @@ const ProdukCart = (props) => {
           <Text style={{ fontSize: 17, color: "black" }}>
             IDR {props.harga}
           </Text>
-          <Text style={{ fontSize: 17, color: "blue" }}>
+          <Text style={{ fontSize: 17, color: "darkblue" }}>
             Quantity: {props.qty}
           </Text>
           <View
@@ -79,6 +88,7 @@ const ProdukCart = (props) => {
             style={{ backgroundColor: "darkred", width: 100, marginTop: 10 }}
             icon="delete"
             mode="contained"
+            onPress={() => props.deleteProduk(props.id)}
           >
             <Text style={{ height: 20, fontSize: 10 }}>Delete</Text>
           </Button>

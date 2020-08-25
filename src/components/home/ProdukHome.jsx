@@ -1,13 +1,15 @@
 import * as React from "react";
 import { Button, Card } from "react-native-paper";
 import { Text, View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import CreateStar from "../Stars";
 
 const ProdukHome = (props) => {
   const handleDetailofProduk = async (id) => {
     props.doProdukDetail(id);
   };
   return (
-    <Card style={{ width: 160, height: 260, marginBottom: 10 }}>
+    <Card style={{ width: 160, height: 280, marginBottom: 10 }}>
       <Card.Cover
         style={{ width: 150, height: 170 }}
         source={{
@@ -15,15 +17,19 @@ const ProdukHome = (props) => {
         }}
       />
       <Card.Content>
-        <View
-          style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-          }}
-        >
-          <Text style={{ fontSize: 11, color: "grey" }}>IDR {props.harga}</Text>
-          <Text style={{ fontSize: 11, color: "grey" }}>5 reviews</Text>
+        <View>
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <CreateStar star={props.rate} />
+          </View>
+          <Text style={{ fontSize: 13, color: "grey", textAlign: "center" }}>
+            IDR {props.harga}
+          </Text>
         </View>
         <Text
           style={{
@@ -31,7 +37,7 @@ const ProdukHome = (props) => {
             fontWeight: "bold",
             textAlign: "center",
             paddingBottom: 1,
-            color: "blueviolet",
+            color: "darkblue",
           }}
         >
           {props.produk}
@@ -46,6 +52,7 @@ const ProdukHome = (props) => {
         >
           <Button
             icon="more"
+            style={{ backgroundColor: "darkblue", borderRadius: 20 }}
             mode="contained"
             onPress={() => handleDetailofProduk(props.idProduk)}
           >

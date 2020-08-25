@@ -22,7 +22,7 @@ class Detail extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "lavender" }}>
-        <Navbar />
+        <Navbar {...this.props} />
         <ScrollView>
           <View>
             {this.props.isLoading ? null : (
@@ -39,7 +39,13 @@ class Detail extends Component {
             <Button
               icon="cart"
               mode="contained"
-              style={{ height: 40, width: 200, margin: 10 }}
+              style={{
+                height: 40,
+                width: 200,
+                margin: 10,
+                backgroundColor: "darkblue",
+                borderRadius: 20,
+              }}
               onPress={() => this.handleAddToCart(this.props.produkDetail[0])}
             >
               <Text style={{ height: 20, fontSize: 15 }}>Add to cart</Text>
@@ -53,6 +59,7 @@ class Detail extends Component {
                 width: 200,
                 margin: 10,
                 backgroundColor: "green",
+                borderRadius: 20,
               }}
             >
               <Text style={{ height: 20, fontSize: 15 }}>Success</Text>
