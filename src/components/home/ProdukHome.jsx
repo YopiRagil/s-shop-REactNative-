@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Button, Card } from "react-native-paper";
 import { Text, View } from "react-native";
-import { Actions } from "react-native-router-flux";
 
 const ProdukHome = (props) => {
   const handleDetailofProduk = async (id) => {

@@ -26,6 +26,11 @@ export default function cartReducer(state = initialState, action) {
         ...state,
         produkInCart: [...state.produkInCart, action.payload],
       };
+    case "CHANGE_QTY":
+      return {
+        ...state,
+        produkInCart: [...state.produkInCart],
+      };
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "product_name": "Samsung Galaxy S11",
+    "product_name": "Samsung Galaxy S10",
     "price": 4500000,
     "picture": "https://mobilemoj.com/wp-content/uploads/2020/03/Samsung-Galaxy-S11-Plus.jpg",
     "description": "1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "product_name": "Oppo A5",
+    "product_name": "Oppo A6",
     "price": 2000000,
     "picture": "https://cdn.shopclues.com/images1/thumbnails/94359/320/320/142099576-94359936-1540981165.jpg",
     "description": "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -46,7 +46,7 @@
   },
   {
     "id": 6,
-    "product_name": "Oppo A5",
+    "product_name": "Oppo A7",
     "price": 1950000,
     "picture": "https://cdn.shopclues.com/images1/thumbnails/94359/320/320/142099576-94359936-1540981165.jpg",
     "description": "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -55,7 +55,7 @@
   },
   {
     "id": 7,
-    "product_name": "Oppo A5",
+    "product_name": "Oppo A8",
     "price": 19000000,
     "picture": "https://cdn.shopclues.com/images1/thumbnails/94359/320/320/142099576-94359936-1540981165.jpg",
     "description": "2 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "product_name": "Samsung Galaxy S11",
+    "product_name": "Samsung Galaxy S12",
     "price": 4400000,
     "picture": "https://mobilemoj.com/wp-content/uploads/2020/03/Samsung-Galaxy-S11-Plus.jpg",
     "description": "1 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",

@@ -1,9 +1,22 @@
-// import data from "../../dataJSON/produk.json";
+export const addToCart = (produk) => {
+  produk["qty"] = 1;
+  return async (dispatch) => {
+    dispatch({
+      type: "PRODUK_INCART",
+      payload: produk,
+    });
+  };
+};
 
-export const changeInput = (el) => {
-  return {
-    type: "CHANGE_INPUT",
-    payload: el,
+export const changeQty = (qty, id) => {
+  return async (dispatch, getState) => {
+    const newInput = getState().cart.produkInCart.filter(
+      (item) => item.id === id
+    );
+    newInput[0].qty = qty;
+    dispatch({
+      type: "CHANGE_QTY",
+    });
   };
 };
 
@@ -13,17 +26,6 @@ export const inputQty = () => {
     dispatch({
       type: "QTY_PRODUK",
       payload: qty,
-    });
-  };
-};
-
-export const addToCart = (produk) => {
-  produk["qty"] = 1;
-  return async (dispatch) => {
-    console.log(produk);
-    dispatch({
-      type: "PRODUK_INCART",
-      payload: produk,
     });
   };
 };

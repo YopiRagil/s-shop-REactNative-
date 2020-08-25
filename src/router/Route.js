@@ -5,6 +5,7 @@ import Detail from "../scene/Detail";
 import { Provider as PaperProvider } from "react-native-paper";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "../store";
+import Cart from "../scene/Cart";
 
 class Route extends Component {
   render() {
@@ -26,6 +27,13 @@ class Route extends Component {
                 path={"detail"}
                 hideNavBar={true}
                 title="detail"
+              />
+              <Scene
+                key="cart"
+                component={Cart}
+                path={"cart"}
+                hideNavBar={true}
+                title="cart"
               />
             </Scene>
           </Router>

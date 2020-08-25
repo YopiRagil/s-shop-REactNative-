@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { Button, Card, Divider } from "react-native-paper";
+import { Text, View, ScrollView } from "react-native";
+import { Button } from "react-native-paper";
 import Navbar from "../components/Navbar";
 import DetailProduk from "../components/detail/DetailProduk";
 import { connect } from "react-redux";
@@ -33,14 +33,31 @@ class Detail extends Component {
           </View>
         </ScrollView>
         <View style={{ justifyContent: "center", flexDirection: "row" }}>
-          <Button
-            icon="cart"
-            mode="contained"
-            style={{ height: 40, width: 200, margin: 10 }}
-            onPress={() => this.handleAddToCart(this.props.produkDetail[0])}
-          >
-            <Text style={{ height: 20, fontSize: 15 }}>Add to cart</Text>
-          </Button>
+          {this.props.produkInCart.filter(
+            (item) => item.id === this.props.produkDetail[0].id
+          ).length === 0 ? (
+            <Button
+              icon="cart"
+              mode="contained"
+              style={{ height: 40, width: 200, margin: 10 }}
+              onPress={() => this.handleAddToCart(this.props.produkDetail[0])}
+            >
+              <Text style={{ height: 20, fontSize: 15 }}>Add to cart</Text>
+            </Button>
+          ) : (
+            <Button
+              icon="check"
+              mode="contained"
+              style={{
+                height: 40,
+                width: 200,
+                margin: 10,
+                backgroundColor: "green",
+              }}
+            >
+              <Text style={{ height: 20, fontSize: 15 }}>Success</Text>
+            </Button>
+          )}
         </View>
       </View>
     );
@@ -52,6 +69,7 @@ const mapStateToProps = (state) => {
     produkDetail: state.produk.produkDetail,
     produkData: state.produk.produkData,
     isLoading: state.produk.isLoading,
+    produkInCart: state.cart.produkInCart,
   };
 };
 const mapDispatchToProps = {

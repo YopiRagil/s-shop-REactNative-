@@ -13,7 +13,7 @@ export default function Navbar() {
         title="S-Shop"
         subtitle={"smart-s"}
       />
-      <Appbar.Action icon="cart" onPress={() => {}} />
+      <Appbar.Action icon="cart" onPress={() => Actions.cart()} />
       <Appbar.Action icon={MORE_ICON} onPress={() => Actions.detail()} />
     </Appbar.Header>
   );
