@@ -26,8 +26,12 @@ const ProdukHome = (props) => {
             }}
           >
             <CreateStar star={props.rate} />
+            <Text style={{ color: "gray", fontSize: 13, marginTop: 2 }}>
+              {" "}
+              {props.rate.toFixed(1)}
+            </Text>
           </View>
-          <Text style={{ fontSize: 13, color: "grey", textAlign: "center" }}>
+          <Text style={{ fontSize: 13, color: "black", textAlign: "center" }}>
             IDR {props.harga}
           </Text>
         </View>

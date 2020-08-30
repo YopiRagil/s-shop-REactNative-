@@ -2,11 +2,16 @@
   "name": "s-shop",
   "displayName": "s-shop",
   "expo": {
-    "name": "s-shop",
-    "slug": "s-shop",
+    "name": "sshop",
+    "slug": "sshop",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "description": "",
+    "githubUrl": "https://github.com/YopiRagil/s-shop-REactNative-",
+    "android": {
+      "package": "com.yopiragil.sshop"
+    }
   }
 }
